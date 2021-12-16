@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: enzoDevoto.apps.medicineTakeCareclient.client.MedicineTakeCareClientTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 1.132 s <<< FAILURE! - in enzoDevoto.apps.medicineTakeCareclient.client.MedicineTakeCareClientTest
+getPatientById  Time elapsed: 1.122 s  <<< ERROR!
+org.springframework.web.client.ResourceAccessException: I/O error on GET request for "http://localhost:8080/api/v1/patients/ecb55be3-c0c0-4ce9-9a2c-63d4410e4129": Connection refused (Connection refused); nested exception is java.net.ConnectException: Connection refused (Connection refused)
+	at enzoDevoto.apps.medicineTakeCareclient.client.MedicineTakeCareClientTest.getPatientById(MedicineTakeCareClientTest.java:23)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at enzoDevoto.apps.medicineTakeCareclient.client.MedicineTakeCareClientTest.getPatientById(MedicineTakeCareClientTest.java:23)
+

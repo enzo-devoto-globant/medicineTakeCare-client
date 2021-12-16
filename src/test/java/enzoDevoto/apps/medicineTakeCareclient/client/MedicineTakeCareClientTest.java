@@ -21,14 +21,13 @@ class MedicineTakeCareClientTest {
     @Test
     void getPatientById() {
         PatientDto patientDto = clientApplication.getPatientById(UUID.randomUUID());
-       // DoctorDto doctorDto = clientApplication.getDoctorById(UUID.randomUUID());
-       // clientApplication.setHost("http://localhost:8080");
         assertNotNull(patientDto);
-       // assertNotNull(doctorDto);
     }
 
     @Test
     void getDoctorById() {
+        DoctorDto doctorDto = clientApplication.getDoctorByID(UUID.randomUUID());
+        assertNotNull(doctorDto);
     }
 
 }

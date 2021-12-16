@@ -1,7 +1,7 @@
 {
   "groups": [
     {
-      "name": "enzo.devoto.mtc",
+      "name": "enzo.devoto",
       "type": "enzoDevoto.apps.medicineTakeCareclient.web.client.MedicineTakeCareClient",
       "sourceType": "enzoDevoto.apps.medicineTakeCareclient.web.client.MedicineTakeCareClient"
     }

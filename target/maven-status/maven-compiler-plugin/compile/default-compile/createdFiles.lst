@@ -1,0 +1,12 @@
+META-INF/spring-configuration-metadata.json
+enzoDevoto/apps/medicineTakeCareclient/MedicineTakeCareClientApplication.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/PatientDto.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/User$UserBuilder.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/PatientDto$PatientDtoBuilderImpl.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/DoctorDto$DoctorDtoBuilder.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/DoctorDto.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/PatientDto$PatientDtoBuilder.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/User.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/User$Fields.class
+enzoDevoto/apps/medicineTakeCareclient/web/client/MedicineTakeCareClient.class
+enzoDevoto/apps/medicineTakeCareclient/web/model/DoctorDto$DoctorDtoBuilderImpl.class
