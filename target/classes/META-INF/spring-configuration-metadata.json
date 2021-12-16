@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "enzo.devoto.mtc",
+      "type": "enzoDevoto.apps.medicineTakeCareclient.web.client.MedicineTakeCareClient",
+      "sourceType": "enzoDevoto.apps.medicineTakeCareclient.web.client.MedicineTakeCareClient"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

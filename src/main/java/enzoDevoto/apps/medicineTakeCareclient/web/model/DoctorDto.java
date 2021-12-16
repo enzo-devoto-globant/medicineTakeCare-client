@@ -1,22 +1,20 @@
-package enzoDevoto.apps.medicineTakeCareclient.medicineTakeCareclient.web.model;
+package enzoDevoto.apps.medicineTakeCareclient.web.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
-import java.util.Date;
-
 @Data
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatientDto extends User{
 
+public class DoctorDto extends User {
+
+    private String speciality;
     private String description;
-    private Date timeOfEvaluation;
-    private boolean isCritical;
+    private double rate;
+    private long price;
 
 }
-
-

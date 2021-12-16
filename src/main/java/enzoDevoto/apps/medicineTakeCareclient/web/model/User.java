@@ -1,4 +1,4 @@
-package enzoDevoto.apps.medicineTakeCareclient.medicineTakeCareclient.web.model;
+package enzoDevoto.apps.medicineTakeCareclient.web.model;
 
 import lombok.Data;
 import lombok.experimental.FieldNameConstants;
