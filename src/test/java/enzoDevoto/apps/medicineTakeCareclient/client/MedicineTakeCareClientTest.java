@@ -43,7 +43,7 @@ class MedicineTakeCareClientTest {
                 .id(UUID.randomUUID())
                 .build();
 
-        URI uri = clientApplication.setNewPatient(patientDto);
+        ResponseEntity<PatientDto> uri = clientApplication.setNewPatient(patientDto);
         System.out.println(uri);
     }
 
