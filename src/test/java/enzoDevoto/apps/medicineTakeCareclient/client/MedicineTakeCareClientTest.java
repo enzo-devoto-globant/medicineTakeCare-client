@@ -54,19 +54,43 @@ class MedicineTakeCareClientTest {
     }
 
     @Test
-    void test_should_pass_when_doctor_is_posted() {
+    void test_should_pass_when_contains_uri(){
 
-        DoctorDto doctorDto = DoctorDto.builder()
+        PatientDto patientDto = PatientDto.builder()
                 .name("New Patient")
                 .description("jvhjvjv")
                 .age(30)
                 .email("jvjhvjvj")
                 .gender("kjkjbkb")
+                .isCritical(true)
+                .timeOfEvaluation(Date.from(Instant.now()))
                 .id(UUID.randomUUID())
                 .build();
 
-
-        ResponseEntity<DoctorDto> uri = clientApplication.setNewDoctor(doctorDto);
+        ResponseEntity<PatientDto> uri = clientApplication.setNewPatient(patientDto);
         System.out.println(uri);
+        assertNotNull(uri);
+
     }
+    @Test
+    void test_for_updatePatient(){
+
+        PatientDto patientDto = PatientDto.builder()
+                .name("New Patient")
+                .description("jvhjvjv")
+                .age(30)
+                .email("jvjhvjvj")
+                .gender("kjkjbkb")
+                .isCritical(true)
+                .timeOfEvaluation(Date.from(Instant.now()))
+                .id(UUID.randomUUID())
+                .build();
+
+        clientApplication.updatePatient(UUID.randomUUID(),patientDto);
+    }
+    @Test
+    void test_for_deletePatient(){
+        clientApplication.deletePatient(UUID.randomUUID());
+    }
+
 }

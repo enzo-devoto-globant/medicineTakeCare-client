@@ -16,7 +16,6 @@ import java.util.UUID;
 @ConfigurationProperties("enzo.devoto")
 @Component
 public class MedicineTakeCareClient {
-    public final String PATIENT_PATH = "/api/v1/patients/";
 
     @Setter
     private String host;
@@ -31,10 +30,17 @@ public class MedicineTakeCareClient {
         return restTemplate.getForObject(host+ Utils.PATIENT_PATH + patientUuid, PatientDto.class);
     }
 
-    public URI setNewPatient(PatientDto patientDto) {
+    public ResponseEntity<PatientDto> setNewPatient(PatientDto patientDto) {
 
-        return restTemplate.postForLocation(host.concat(Utils.PATIENT_PATH), patientDto);
+        return restTemplate.postForEntity(host.concat(Utils.PATIENT_PATH), patientDto, PatientDto.class);
 
+    }
+    public void updatePatient(UUID patientId, PatientDto patient){
+        restTemplate.put(host+Utils.PATIENT_PATH.concat("updatePatient/")+patientId,patient);
+    }
+
+    public void deletePatient(UUID patientId){
+        restTemplate.delete(host+Utils.PATIENT_PATH.concat("deletePatient/")+patientId);
     }
 
     public DoctorDto getDoctorByID(UUID doctorUuid) {
