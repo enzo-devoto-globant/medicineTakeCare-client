@@ -31,6 +31,7 @@ public class MedicineTakeCareClient {
     }
 
     public ResponseEntity<PatientDto> setNewPatient(PatientDto patientDto) {
+
         return restTemplate.postForEntity(host.concat(Utils.PATIENT_PATH), patientDto, PatientDto.class);
 
     }
