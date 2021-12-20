@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
 import java.util.UUID;
 
 @ConfigurationProperties("enzo.devoto")
@@ -47,9 +46,15 @@ public class MedicineTakeCareClient {
         return restTemplate.getForObject(host+Utils.DOCTOR_PATH+doctorUuid, DoctorDto.class);
     }
 
-
     public ResponseEntity<DoctorDto> setNewDoctor(DoctorDto doctorDto) {
         return restTemplate.postForEntity(host.concat(Utils.DOCTOR_PATH), doctorDto, DoctorDto.class);
 
+    }
+    public void updateDoctor(UUID doctorId, DoctorDto doctor){
+        restTemplate.put(host+Utils.DOCTOR_PATH.concat("updateDoctor/")+doctorId,doctor);
+    }
+
+    public void deleteDoctor(UUID doctorId){
+        restTemplate.delete(host+Utils.DOCTOR_PATH.concat("deleteDoctor/")+doctorId);
     }
 }
