@@ -3,14 +3,11 @@ package enzoDevoto.apps.medicineTakeCareclient.client;
 import enzoDevoto.apps.medicineTakeCareclient.web.client.MedicineTakeCareClient;
 import enzoDevoto.apps.medicineTakeCareclient.web.model.DoctorDto;
 import enzoDevoto.apps.medicineTakeCareclient.web.model.PatientDto;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import java.net.URI;
 import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
@@ -38,9 +35,9 @@ class MedicineTakeCareClientTest {
                 .age(30)
                 .email("jvjhvjvj")
                 .gender("kjkjbkb")
+                .id(UUID.randomUUID())
                 .isCritical(true)
                 .timeOfEvaluation(Date.from(Instant.now()))
-                .id(UUID.randomUUID())
                 .build();
 
         ResponseEntity<PatientDto> uri = clientApplication.setNewPatient(patientDto);
