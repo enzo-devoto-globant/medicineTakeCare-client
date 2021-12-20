@@ -41,15 +41,27 @@ public class MedicineTakeCareClient {
     }
 
     public void updatePatient(UUID patientId, PatientDto patient) {
-        restTemplate.put(host + Utils.PATIENT_PATH.concat("updatePatient/") + patientId, patient);
+        if (patient.getId() == null) {
+            throw new NullPointerException("This Patient ID is not correct. Patient doesn't exists.");
+        } else {
+            restTemplate.put(host + Utils.PATIENT_PATH.concat("updatePatient/") + patientId, patient);
+        }
     }
 
     public void deletePatient(UUID patientId) {
-        restTemplate.delete(host + Utils.PATIENT_PATH.concat("deletePatient/") + patientId);
+        if (patientId == null) {
+            throw new NullPointerException("This Patient ID is not correct. Patient doesn't exists.");
+        } else {
+            restTemplate.delete(host + Utils.PATIENT_PATH.concat("deletePatient/") + patientId);
+        }
     }
 
     public DoctorDto getDoctorByID(UUID doctorUuid) {
-        return restTemplate.getForObject(host + Utils.DOCTOR_PATH + doctorUuid, DoctorDto.class);
+        if (doctorUuid == null) {
+            throw new NullPointerException("This Patient ID is not correct. Patient doesn't exists.");
+        } else {
+            return restTemplate.getForObject(host + Utils.DOCTOR_PATH + doctorUuid, DoctorDto.class);
+        }
     }
 
     public ResponseEntity<DoctorDto> setNewDoctor(DoctorDto doctorDto) {
@@ -58,10 +70,18 @@ public class MedicineTakeCareClient {
     }
 
     public void updateDoctor(UUID doctorId, DoctorDto doctor) {
-        restTemplate.put(host + Utils.DOCTOR_PATH.concat("updateDoctor/") + doctorId, doctor);
+        if (doctorId == null) {
+            throw new NullPointerException("This Patient ID is not correct. Patient doesn't exists.");
+        } else {
+            restTemplate.put(host + Utils.DOCTOR_PATH.concat("updateDoctor/") + doctorId, doctor);
+        }
     }
 
     public void deleteDoctor(UUID doctorId) {
-        restTemplate.delete(host + Utils.DOCTOR_PATH.concat("deleteDoctor/") + doctorId);
+        if (doctorId == null) {
+            throw new NullPointerException("This Patient ID is not correct. Patient doesn't exists.");
+        } else {
+            restTemplate.delete(host + Utils.DOCTOR_PATH.concat("deleteDoctor/") + doctorId);
+        }
     }
 }
