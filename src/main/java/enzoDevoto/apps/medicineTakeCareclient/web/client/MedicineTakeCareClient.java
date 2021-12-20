@@ -6,6 +6,7 @@ import enzoDevoto.apps.medicineTakeCareclient.web.util.Utils;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -40,4 +41,9 @@ public class MedicineTakeCareClient {
         return restTemplate.getForObject(host+Utils.DOCTOR_PATH+doctorUuid, DoctorDto.class);
     }
 
+
+    public ResponseEntity<DoctorDto> setNewDoctor(DoctorDto doctorDto) {
+        return restTemplate.postForEntity(host.concat(Utils.DOCTOR_PATH), doctorDto, DoctorDto.class);
+
+    }
 }

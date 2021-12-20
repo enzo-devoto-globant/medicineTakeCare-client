@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
 import java.net.URI;
 import java.time.Instant;
@@ -29,13 +30,7 @@ class MedicineTakeCareClientTest {
     }
 
     @Test
-    void test_should_pass_if_doctorDto_contains_data() {
-        DoctorDto doctorDto = clientApplication.getDoctorByID(UUID.randomUUID());
-        assertNotNull(doctorDto);
-    }
-
-    @Test
-    void test_should_pass_when_contains_uri(){
+    void test_should_pass_when_patient_is_posted() {
 
         PatientDto patientDto = PatientDto.builder()
                 .name("New Patient")
@@ -48,12 +43,30 @@ class MedicineTakeCareClientTest {
                 .id(UUID.randomUUID())
                 .build();
 
-        System.out.println(patientDto);
         URI uri = clientApplication.setNewPatient(patientDto);
         System.out.println(uri);
-        assertNotNull(uri);
-
     }
 
+    @Test
+    void test_should_pass_if_doctorDto_contains_data() {
+        DoctorDto doctorDto = clientApplication.getDoctorByID(UUID.randomUUID());
+        assertNotNull(doctorDto);
+    }
 
+    @Test
+    void test_should_pass_when_doctor_is_posted() {
+
+        DoctorDto doctorDto = DoctorDto.builder()
+                .name("New Patient")
+                .description("jvhjvjv")
+                .age(30)
+                .email("jvjhvjvj")
+                .gender("kjkjbkb")
+                .id(UUID.randomUUID())
+                .build();
+
+
+        ResponseEntity<DoctorDto> uri = clientApplication.setNewDoctor(doctorDto);
+        System.out.println(uri);
+    }
 }
