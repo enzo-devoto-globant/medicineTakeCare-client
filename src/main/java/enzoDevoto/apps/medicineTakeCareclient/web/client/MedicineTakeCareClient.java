@@ -6,6 +6,7 @@ import enzoDevoto.apps.medicineTakeCareclient.web.util.Utils;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,7 +16,6 @@ import java.util.UUID;
 @ConfigurationProperties("enzo.devoto")
 @Component
 public class MedicineTakeCareClient {
-    public final String PATIENT_PATH = "/api/v1/patients/";
 
     @Setter
     private String host;
@@ -30,9 +30,9 @@ public class MedicineTakeCareClient {
         return restTemplate.getForObject(host+ Utils.PATIENT_PATH + patientUuid, PatientDto.class);
     }
 
-    public URI setNewPatient(PatientDto patientDto) {
+    public ResponseEntity<PatientDto> setNewPatient(PatientDto patientDto) {
 
-        return restTemplate.postForLocation(host.concat(Utils.PATIENT_PATH), patientDto);
+        return restTemplate.postForEntity(host.concat(Utils.PATIENT_PATH), patientDto, PatientDto.class);
 
     }
 
