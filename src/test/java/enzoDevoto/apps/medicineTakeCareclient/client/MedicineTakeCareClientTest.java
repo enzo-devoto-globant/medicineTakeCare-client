@@ -47,12 +47,30 @@ class MedicineTakeCareClientTest {
                 .id(UUID.randomUUID())
                 .build();
 
-        System.out.println(patientDto);
         ResponseEntity<PatientDto> uri = clientApplication.setNewPatient(patientDto);
         System.out.println(uri);
         assertNotNull(uri);
 
     }
+    @Test
+    void test_for_updatePatient(){
 
+        PatientDto patientDto = PatientDto.builder()
+                .name("New Patient")
+                .description("jvhjvjv")
+                .age(30)
+                .email("jvjhvjvj")
+                .gender("kjkjbkb")
+                .isCritical(true)
+                .timeOfEvaluation(Date.from(Instant.now()))
+                .id(UUID.randomUUID())
+                .build();
+
+        clientApplication.updatePatient(UUID.randomUUID(),patientDto);
+    }
+    @Test
+    void test_for_deletePatient(){
+        clientApplication.deletePatient(UUID.randomUUID());
+    }
 
 }

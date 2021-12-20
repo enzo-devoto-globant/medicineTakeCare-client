@@ -35,6 +35,13 @@ public class MedicineTakeCareClient {
         return restTemplate.postForEntity(host.concat(Utils.PATIENT_PATH), patientDto, PatientDto.class);
 
     }
+    public void updatePatient(UUID patientId, PatientDto patient){
+        restTemplate.put(host+Utils.PATIENT_PATH.concat("updatePatient/")+patientId,patient);
+    }
+
+    public void deletePatient(UUID patientId){
+        restTemplate.delete(host+Utils.PATIENT_PATH.concat("deletePatient/")+patientId);
+    }
 
     public DoctorDto getDoctorByID(UUID doctorUuid) {
         return restTemplate.getForObject(host+Utils.DOCTOR_PATH+doctorUuid, DoctorDto.class);
